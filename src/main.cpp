@@ -32,17 +32,17 @@ void loop()
     digitalWrite(PIN_SYNC, HIGH);
     SPI.write16(~(digitsB[i] << 8 | digitsA[i]));
     digitalWrite(PIN_SYNC, LOW);
-    for (int j = 255; j >= 0; j--)
+    for (int j = 255; j >= 150; j--)
     {
       analogWrite(PIN_LEDON, j);
       analogWrite(PIN_LEDONB, j);
-      delay(1);
+      delay(5);
     }
-    for (int j = 0; j <= 255; j++)
+    for (int j = 150; j <= 255; j++)
     {
       analogWrite(PIN_LEDON, j);
       analogWrite(PIN_LEDONB, j);
-      delay(1);
+      delay(5);
     }
   }
   digitalWrite(PIN_DRST, LOW);
